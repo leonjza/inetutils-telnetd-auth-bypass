@@ -7,7 +7,8 @@ RUN apt-get update && \
       telnet && \
     rm -rf /var/lib/apt/lists/*
 
-RUN sed -i 's/#<off># telnet/telnet/' /etc/inetd.conf
+RUN useradd user1 && \
+    sed -i 's/#<off># telnet/telnet/' /etc/inetd.conf
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 

