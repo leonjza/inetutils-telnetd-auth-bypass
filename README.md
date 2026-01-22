@@ -1,4 +1,4 @@
-# inetutils-telnetd auth bypass lab
+# inetutils-telnetd auth bypass lab, CVE-2026-24061
 
 A small lab to play with the auth bypass in inetutils-telnetd 1.9.3 - 2.7 as disclosed on the oss-sec mailing list. [0]
 
